@@ -1,13 +1,13 @@
-import { check } from "../assets";
+import { useState } from "react";
 import { pricing } from "../constants";
 import Button from "./Button";
 
-// PricingList.js
-
-import { useState } from "react"; // Import useState hook
-
 const PricingList = () => {
-  const [showAllFeatures, setShowAllFeatures] = useState(false); // State to toggle displaying all features
+  const [showAllFeatures, setShowAllFeatures] = useState(false);
+
+  const isImageUrl = (str) => {
+    return str.endsWith('.png') || str.endsWith('.jpg') || str.endsWith('.jpeg') || str.endsWith('.svg'); 
+  }
 
   return (
     <>
@@ -15,7 +15,7 @@ const PricingList = () => {
         {pricing.map((item) => (
           <div
             key={item.id}
-            className="w-[19rem] max-lg:w-full px-6 bg-n-8 border border-n-6 rounded-[2rem] lg:w-auto py-8  [&>h4]:first:text-color-2 [&>h4]:even:text-color-1 [&>h4]:last:text-color-3 hover:scale-105 transition ease-in-out delay-80"
+            className="w-[19rem] max-lg:w-full px-6 bg-n-8 border border-n-6 rounded-[2rem] lg:w-auto py-8 hover:scale-105 transition ease-in-out delay-80"
           >
             <h4 className="mb-4 h4">{item.title}</h4>
             <p className="body-2 min-h-[4rem] mb-3 text-n-1/50">
@@ -41,37 +41,24 @@ const PricingList = () => {
               {item.price ? "Get started" : "Contact us"}
             </Button>
             <ul>
-              {showAllFeatures
-                ? // Render all features
-                  item.features.map((feature) => (
-                    <li
-                      key={feature.id}
-                      className="flex items-start py-5 border-t border-n-6"
-                    >
-                      <img
-                        src={feature.imageUrl}
-                        width={24}
-                        height={24}
-                        alt={feature.name}
-                      />
-                      <p className="ml-4 body-2">{feature.name}</p>
-                    </li>
-                  ))
-                : // Render only 3 features
-                  item.features.slice(0, 3).map((feature) => (
-                    <li
-                      key={feature.id}
-                      className="flex items-start py-5 border-t border-n-6"
-                    >
-                      <img
-                        src={feature.imageUrl}
-                        width={24}
-                        height={24}
-                        alt={feature.name}
-                      />
-                      <p className="ml-4 body-2">{feature.name}</p>
-                    </li>
-                  ))}
+              {(showAllFeatures ? item.features : item.features.slice(0, 3)).map((feature) => (
+                <li
+                  key={feature.id}
+                  className="flex items-start py-5 border-t border-n-6"
+                >
+                  {isImageUrl(feature.imageUrl) ? (
+                    <img
+                      src={feature.imageUrl}
+                      width={24}
+                      height={24}
+                      alt={feature.name}
+                    />
+                  ) : (
+                    <span className="text-xl">{feature.imageUrl}</span>
+                  )}
+                  <p className="ml-4 body-2">{feature.name}</p>
+                </li>
+              ))}
             </ul>
           </div>
         ))}
