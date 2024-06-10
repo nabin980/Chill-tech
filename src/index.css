@@ -17,6 +17,13 @@
   scroll-behavior: smooth
 }
 
+.hidden-button-placeholder {
+  height: 48px; /* Adjust this height to match the actual button height */
+  margin-bottom: 24px; /* Adjust the bottom margin to match the button margin */
+  visibility: hidden;
+}
+
+
 @layer base {
   body {
     @apply font-sans text-base bg-n-8 text-n-1;

@@ -6,7 +6,7 @@ const PricingList = () => {
   const [showAllFeatures, setShowAllFeatures] = useState(false);
 
   const isImageUrl = (str) => {
-    return str?.endsWith('.png') || str?.endsWith('.jpg') || str?.endsWith('.jpeg') || str?.endsWith('.svg'); 
+    return str?.endsWith('.png') || str?.endsWith('.jpg') || str?.endsWith('.jpeg') || str?.endsWith('.svg');
   }
 
   return (
@@ -33,13 +33,17 @@ const PricingList = () => {
                 </>
               )}
             </div>
-            <Button
-              className="w-full mb-6"
-              href={item.price ? "/pricing" : "mailto:techwings01@gmail.com"}
-              white={!!item.price}
-            >
-              {item.price ? "Get started" : "Contact us"}
-            </Button>
+            {item.price ? (
+              <Button
+                className="w-full mb-6"
+                href="/pricing"
+                white={!!item.price}
+              >
+                Get started
+              </Button>
+            ) : (
+              <div className="hidden-button-placeholder"></div> // Hidden button placeholder
+            )}
             <ul>
               {(showAllFeatures ? item.features : item.features.slice(0, 3)).map((feature) => (
                 <li
