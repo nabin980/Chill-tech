@@ -1,13 +1,14 @@
 import {
+  aasthalogo,
   benefitIcon1,
   benefitIcon2,
   benefitIcon3,
   benefitIcon4,
   benefitImage2,
+  check,
   chromecast,
   disc02,
   discord,
-  discordBlack,
   facebook,
   figma,
   file02,
@@ -31,10 +32,12 @@ import {
   searchMd,
   slack,
   sliders04,
-  telegram,
-  twitter,
-  yourlogo,
 } from "../assets";
+
+import linkedin from "../assets/socials/linkedin.svg";
+import naturejoy from "../assets/Naturejoy.png";
+import vicuna from "../assets/VICUNA.png";
+import Befree from "../assets/befree.png";
 
 export const navigation = [
   {
@@ -44,29 +47,30 @@ export const navigation = [
   },
   {
     id: "1",
-    title: "Pricing",
-    url: "#pricing",
-  },
-  {
-    id: "2",
-    title: "How to use",
+    title: "FOr You",
     url: "#how-to-use",
   },
   {
-    id: "3",
-    title: "Roadmap",
-    url: "#roadmap",
+    id: "2",
+    title: "Pricing",
+    url: "#pricing",
   },
-  {
-    id: "4",
-    title: "New account",
-    url: "#signup",
-    onlyMobile: true,
-  },
+  
+  // {
+  //   id: "3",
+  //   title: "Roadmap",
+  //   url: "#roadmap",
+  // },
+  // {
+  //   id: "4",
+  //   title: "New account",
+  //   url: "#signup",
+  //   onlyMobile: true,
+  // },
   {
     id: "5",
-    title: "Sign in",
-    url: "#login",
+    title: "Contact Us",
+    url: "mailto:techwings01@gmail.com",
     onlyMobile: true,
   },
 ];
@@ -75,12 +79,39 @@ export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
 
 export const notificationImages = [notification4, notification3, notification2];
 
-export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
+export const companyLogos = [
+  {
+    id: "0",
+    title: "Aastha",
+    companylogo: aasthalogo,
+    url: "https://www.instagram.com/aastha.footwears?igsh=MXZra3hjaHYyaG12ZQ==",
+  },
+
+  {
+    id: "1",
+    title: "Befree",
+    companylogo: Befree,
+    url: "https://www.instagram.com/be.fee_collection2023?igsh=MXhsZWlubHRzY2cybg==",
+  },
+
+  {
+    id: "2",
+    title: "Naturejoy",
+    companylogo: naturejoy,
+    url: "https://www.instagram.com/naturejoyresort?igsh=dG4xazhtbTN1aHFk",
+  },
+  {
+    id: "3",
+    title: "Vicum",
+    companylogo: vicuna,
+    url: "https://www.instagram.com/vicuna_nepal?igsh=ZWw2aDNoN2Nob2U0",
+  },
+];
 
 export const brainwaveServices = [
-  "Photo generating",
-  "Photo enhance",
-  "Seamless Integration",
+  "AI Chatbot",
+  "Leveraging AI Tools",
+  "AI Products",
 ];
 
 export const brainwaveServicesIcons = [
@@ -128,21 +159,20 @@ export const roadmap = [
 ];
 
 export const collabText =
-  "With smart automation and top-notch security, it's the perfect solution for teams looking to work smarter.";
+  "With smart automation and top-notch security, it's the perfect solution for bussinesses looking to work smarter.";
 
 export const collabContent = [
   {
     id: "0",
-    title: "Seamless Integration",
-    text: collabText,
+    title: "Graphic Designing",
   },
   {
     id: "1",
-    title: "Smart Automation",
+    title: "Search Engine Optimization",
   },
   {
     id: "2",
-    title: "Top-notch Security",
+    title: "Market Relevant Content",
   },
 ];
 
@@ -205,124 +235,159 @@ export const collabApps = [
   },
 ];
 
+import multiply from "../assets/cross1.svg";
+import checkmark from "../assets/checkmark.svg";
+
 export const pricing = [
   {
     id: "0",
     title: "Basic",
-    description: "AI chatbot, personalized recommendations",
-    price: "0",
+    description: "10% discount on yearly subscription",
+    price: "5999",
     features: [
-      "An AI chatbot that can understand your queries",
-      "Personalized recommendations based on your preferences",
-      "Ability to explore the app and its features without any cost",
+      { id: "0", name: "FB/Insta Post", imageUrl: checkmark },
+      { id: "1", name: "Caption Writing", imageUrl: checkmark },
+      { id: "2", name: "Page Management", imageUrl: checkmark },
+      { id: "3", name: "Cover Poster", imageUrl: checkmark },
+      { id: "4", name: "Complimentary Reel", imageUrl: checkmark },
+      { id: "5", name: "Monthly Reporting", imageUrl: multiply },
+      { id: "6", name: "Strategic Collaboration", imageUrl: multiply },
+      { id: "7", name: "Basic Page Automation", imageUrl: multiply },
+      { id: "8", name: "AI Chatbot", imageUrl: multiply },
+      { id: "9", name: "Boosting(Your Call)", imageUrl: checkmark },
     ],
   },
   {
     id: "1",
-    title: "Premium",
-    description: "Advanced AI chatbot, priority support, analytics dashboard",
-    price: "9.99",
+    title: "Standard",
+    description: "10% discount on yearly subscription",
+    price: "16,999",
     features: [
-      "An advanced AI chatbot that can understand complex queries",
-      "An analytics dashboard to track your conversations",
-      "Priority support to solve issues quickly",
+      { id: "0", name: "FB/Insta Post", imageUrl: checkmark },
+      { id: "1", name: "Caption Writing", imageUrl: checkmark },
+      { id: "2", name: "Page Management", imageUrl: checkmark },
+      { id: "3", name: "Cover Poster", imageUrl: checkmark },
+      { id: "4", name: "Complimentary Reel", imageUrl: checkmark },
+      { id: "5", name: "Monthly Reporting", imageUrl: multiply },
+      { id: "6", name: "Strategic Collaboration", imageUrl: multiply },
+      { id: "7", name: "Basic Page Automation", imageUrl: multiply },
+      { id: "8", name: "AI Chatbot", imageUrl: multiply },
+      { id: "9", name: "Boosting(Your Call)", imageUrl: checkmark },
     ],
   },
   {
     id: "2",
-    title: "Enterprise",
-    description: "Custom AI chatbot, advanced analytics, dedicated account",
-    price: null,
+    title: "Premium",
+    description: "10% discount on yearly subscription",
+    price: "26,999",
     features: [
-      "An AI chatbot that can understand your queries",
-      "Personalized recommendations based on your preferences",
-      "Ability to explore the app and its features without any cost",
+      { id: "0", name: "FB/Insta Post", imageUrl: checkmark },
+      { id: "1", name: "Caption Writing", imageUrl: checkmark },
+      { id: "2", name: "Page Management", imageUrl: checkmark },
+      { id: "3", name: "Cover Poster", imageUrl: checkmark },
+      { id: "4", name: "Complimentary Reel", imageUrl: checkmark },
+      { id: "5", name: "Monthly Reporting", imageUrl: multiply },
+      { id: "6", name: "Strategic Collaboration", imageUrl: multiply },
+      { id: "7", name: "Basic Page Automation", imageUrl: multiply },
+      { id: "8", name: "AI Chatbot", imageUrl: multiply },
+      { id: "9", name: "Boosting(Your Call)", imageUrl: checkmark },
     ],
   },
 ];
+
+import digitalMarketing from "../assets/digitalmarketing.png";
+import webDevelopment from "../assets/webdevelopment.png";
+import videoGraphy from "../assets/video.png";
+import ADS from "../assets/ads.png";
+import graphicDesigning from "../assets/graphic.png";
+import chatBot from "../assets/chatbot.png";
 
 export const benefits = [
   {
     id: "0",
-    title: "Ask anything",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    title: "Digital Marketing",
+    text: "Harness the power of digital channels to effectively reach and engage with your target audience.",
     backgroundUrl: "./src/assets/benefits/card-1.svg",
-    iconUrl: benefitIcon1,
+    iconUrl: digitalMarketing,
     imageUrl: benefitImage2,
+    address: "https://tailwindcss.com/",
   },
   {
     id: "1",
-    title: "Improve everyday",
-    text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+    title: "Web Development",
+    text: "Build and maintain high-quality websites and web applications that deliver exceptional user experiences.",
     backgroundUrl: "./src/assets/benefits/card-2.svg",
-    iconUrl: benefitIcon2,
+    iconUrl: webDevelopment,
     imageUrl: benefitImage2,
     light: true,
+    address: "https://tailwindcss.com/",
   },
   {
     id: "2",
-    title: "Connect everywhere",
-    text: "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
+    title: "Video Production",
+    text: "Create compelling video content that captivates your audience and drives engagement.",
     backgroundUrl: "./src/assets/benefits/card-3.svg",
-    iconUrl: benefitIcon3,
+    iconUrl: videoGraphy,
     imageUrl: benefitImage2,
+    address: "https://tailwindcss.com/",
   },
   {
     id: "3",
-    title: "Fast responding",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    title: "Commercial Ads",
+    text: "Design and execute impactful commercial advertising campaigns that boost brand awareness.",
     backgroundUrl: "./src/assets/benefits/card-4.svg",
-    iconUrl: benefitIcon4,
+    iconUrl: ADS,
     imageUrl: benefitImage2,
     light: true,
+    address: "https://tailwindcss.com/",
   },
   {
     id: "4",
-    title: "Ask anything",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    title: "Graphic Designing",
+    text: "Craft visually stunning graphics that enhance your brand’s visual identity and messaging.",
     backgroundUrl: "./src/assets/benefits/card-5.svg",
-    iconUrl: benefitIcon1,
+    iconUrl: graphicDesigning,
     imageUrl: benefitImage2,
+    address: "https://tailwindcss.com/",
   },
   {
     id: "5",
-    title: "Improve everyday",
-    text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+    title: "AI Chatbot",
+    text: "Leverage advanced AI technology to provide instant, accurate responses to customer queries.",
     backgroundUrl: "./src/assets/benefits/card-6.svg",
-    iconUrl: benefitIcon2,
+    iconUrl: benefitIcon1,
     imageUrl: benefitImage2,
+    address: "https://tailwindcss.com/",
   },
 ];
+
+import youtube from "../assets/youtube.svg";
 
 export const socials = [
   {
     id: "0",
-    title: "Discord",
-    iconUrl: discordBlack,
-    url: "#",
+    title: "Linkedin",
+    iconUrl: linkedin,
+    url: "https://www.linkedin.com/company/chilltech11/",
   },
+
   {
     id: "1",
-    title: "Twitter",
-    iconUrl: twitter,
-    url: "#",
-  },
-  {
-    id: "2",
     title: "Instagram",
     iconUrl: instagram,
-    url: "#",
+    url: "https://www.instagram.com/chill__tech?igsh=MWt0ZWZiaHJqMWlj",
   },
+
   {
     id: "3",
-    title: "Telegram",
-    iconUrl: telegram,
-    url: "#",
+    title: "Facebook",
+    iconUrl: facebook,
+    url: "https://www.facebook.com/chilltech2022/?paipv=0&eav=AfYMH_SGWYUmTNhrdwI1T9KsaUWxVUK2MW-1lvW5fJ-t7Bp6KT-tsbFJQc4iW9B9yvA&_rdr",
   },
   {
     id: "4",
-    title: "Facebook",
-    iconUrl: facebook,
-    url: "#",
+    title: "Youtube",
+    iconUrl: youtube,
+    url: "https://www.youtube.com/@chillproduction9999",
   },
 ];

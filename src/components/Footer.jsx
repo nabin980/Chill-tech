@@ -1,13 +1,19 @@
 import React from "react";
 import Section from "./Section";
 import { socials } from "../constants";
+import image1 from "../assets/location.svg"
+import image2 from "../assets/phone.svg"
 
 const Footer = () => {
   return (
     <Section crosses className="!px-0 !py-10">
       <div className="container flex sm:justify-between justify-center items-center gap-10 max-sm:flex-col">
-        <p className="caption text-n-4 lg:block">
-          © {new Date().getFullYear()}. All rights reserved.
+        <p className="caption text-n-4 lg:block flex flex-col gap-2">
+          <div>
+            © {new Date().getFullYear()} Chill Tech. All rights reserved.
+          </div>
+          <div className="flex gap-2"><img src={image2} alt="" width={12}/>+977-9842806811</div>
+          <div className="flex gap-2"><img src={image1} alt="" width={12}/>Chabhil, Kathmandu</div>
         </p>
 
         <ul className="flex gap-5 flex-wrap">

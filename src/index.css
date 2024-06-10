@@ -10,7 +10,7 @@
   --font-sora: "Sora", sans-serif;
   --font-code: "Source Code Pro", monospace;
   --font-grotesk: "Space Grotesk", sans-serif;
-  color-scheme: dark;
+  color-scheme: rgb(0, 221, 255);
 }
 
 * {
@@ -19,9 +19,31 @@
 
 @layer base {
   body {
-    @apply font-sans bg-n-8 text-n-1 text-base;
+    @apply font-sans text-base bg-n-8 text-n-1;
   }
 }
+
+/* @layer base {
+  body {
+    @apply font-sans text-base text-n-1 bg-custom-gradient;
+  }
+}
+
+/* Custom gradient class */
+ @layer utilities {
+  .bg-custom-gradient {
+    background: linear-gradient(to bottom, rgba(246, 247, 247, 0.8), rgba(204, 204, 218, 0.8));
+  }
+  .text-custom-color-w{
+    color: antiquewhite;
+  }
+  .text-custom-color{
+    color: rgb(0, 0, 0);
+  }
+  .text-custom-color-a{
+    color: rgb(11, 125, 212);
+  }
+} 
 
 .rotate-45 {
   @apply rotate-[45deg]
