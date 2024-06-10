@@ -6,7 +6,7 @@ const PricingList = () => {
   const [showAllFeatures, setShowAllFeatures] = useState(false);
 
   const isImageUrl = (str) => {
-    return str.endsWith('.png') || str.endsWith('.jpg') || str.endsWith('.jpeg') || str.endsWith('.svg'); 
+    return str?.endsWith('.png') || str?.endsWith('.jpg') || str?.endsWith('.jpeg') || str?.endsWith('.svg'); 
   }
 
   return (
@@ -46,15 +46,13 @@ const PricingList = () => {
                   key={feature.id}
                   className="flex items-start py-5 border-t border-n-6"
                 >
-                  {isImageUrl(feature.imageUrl) ? (
+                  {feature.imageUrl && isImageUrl(feature.imageUrl) && (
                     <img
                       src={feature.imageUrl}
                       width={24}
                       height={24}
                       alt={feature.name}
                     />
-                  ) : (
-                    <span className="text-xl">{feature.imageUrl}</span>
                   )}
                   <p className="ml-4 body-2">{feature.name}</p>
                 </li>
