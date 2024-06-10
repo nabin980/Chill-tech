@@ -243,7 +243,7 @@ export const pricing = [
     id: "0",
     title: "Basic",
     description: "10% discount on yearly subscription",
-    price: "5999",
+    price: "5,999",
     features: [
       { id: "0", name: "FB/Insta Post", imageUrl: checkmark },
       { id: "1", name: "Caption Writing", imageUrl: checkmark },
