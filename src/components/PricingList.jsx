@@ -44,7 +44,7 @@ const PricingList = () => {
               {(showAllFeatures ? item.features : item.features.slice(0, 3)).map((feature) => (
                 <li
                   key={feature.id}
-                  className="flex items-start py-5 border-t border-n-6"
+                  className="flex items-center py-5 border-t border-n-6"
                 >
                   {feature.imageUrl && isImageUrl(feature.imageUrl) && (
                     <img
