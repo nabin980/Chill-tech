@@ -17,6 +17,60 @@
   scroll-behavior: smooth
 }
 
+.hidden-button-placeholder {
+  height: 48px; /* Adjust this height to match the actual button height */
+  margin-bottom: 24px; /* Adjust the bottom margin to match the button margin */
+  visibility: hidden;
+}
+
+.ant-tabs-tab,
+.ant-tabs-tab-btn {
+  color: white !important;
+}
+
+.ant-tabs-ink-bar {
+  background-color: white !important;
+}
+
+.ant-tabs-nav {
+  margin-bottom: 16px;
+}
+
+.ant-tabs-tab-btn {
+  transition: color 0.3s;
+}
+
+.ant-tabs-tab:hover {
+  color: white !important;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: white !important;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn:hover {
+  color: white !important;
+}
+
+.ant-tabs-content {
+  color: white;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
 @layer base {
   body {
     @apply font-sans text-base bg-n-8 text-n-1;

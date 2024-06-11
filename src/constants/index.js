@@ -299,6 +299,7 @@ export const pricing = [
     description: "10% discount on yearly subscription",
     price: "26,999",
     features: [
+
       { id: "0", name: "20" },
       { id: "1", name: "20" },
       { id: "2", name: "Your Call" },
@@ -311,9 +312,10 @@ export const pricing = [
       { id: "9", name: "Your Call" },
     ],
   },
+
 ];
 
-export const digitalPricing = [
+export const webDevelopmentPricing = [
   {
     id: "3",
     title: "Services",
@@ -384,9 +386,53 @@ export const digitalPricing = [
       { id: "7", imageUrl: checkmark },
       { id: "8", imageUrl: checkmark },
       { id: "9", name: "Your Call" },
+
+  
+
+    ],
+  },
+
+];
+
+export const aiServicesPricing = [
+  {
+    id: "0",
+    title: "Basic AI",
+    description: "For simple AI solutions",
+    price: "14999",
+    features: [
+      { id: "0", name: "Basic Chatbot", imageUrl: checkmark },
+      { id: "1", name: "Data Analysis", imageUrl: checkmark },
+      { id: "2", name: "Report Generation", imageUrl: checkmark },
+      { id: "3", name: "Basic Automation", imageUrl: checkmark },
+    ],
+  },
+  {
+    id: "1",
+    title: "Standard AI",
+    description: "For more advanced AI applications",
+    price: "29999",
+    features: [
+      { id: "0", name: "Advanced Chatbot", imageUrl: checkmark },
+      { id: "1", name: "Predictive Analysis", imageUrl: checkmark },
+      { id: "2", name: "Custom Reports", imageUrl: checkmark },
+      { id: "3", name: "Advanced Automation", imageUrl: checkmark },
+    ],
+  },
+  {
+    id: "2",
+    title: "Premium AI",
+    description: "Cutting-edge AI solutions",
+    price: "49999",
+    features: [
+      { id: "0", name: "AI Model Training", imageUrl: checkmark },
+      { id: "1", name: "Data Mining", imageUrl: checkmark },
+      { id: "2", name: "Full Automation", imageUrl: checkmark },
+      { id: "3", name: "24/7 Support", imageUrl: checkmark },
     ],
   },
 ];
+
 
 import digitalMarketing from "../assets/digitalmarketing.png";
 import webDevelopment from "../assets/webdevelopment.png";
