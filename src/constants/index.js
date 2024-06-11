@@ -314,6 +314,88 @@ export const pricing = [
  
 ];
 
+export const webDevelopmentPricing = [
+  {
+    id: "0",
+    title: "Basic Web",
+    description: "Ideal for personal blogs or small businesses",
+    price: "9999",
+    features: [
+      { id: "0", name: "5 Pages", imageUrl: checkmark },
+      { id: "1", name: "Basic SEO", imageUrl: checkmark },
+      { id: "2", name: "Responsive Design", imageUrl: checkmark },
+      { id: "3", name: "Hosting Included", imageUrl: checkmark },
+      { id: "4", name: "Basic Support", imageUrl: checkmark },
+    ],
+  },
+  {
+    id: "1",
+    title: "Standard Web",
+    description: "Best for small to medium businesses",
+    price: "19999",
+    features: [
+      { id: "0", name: "10 Pages", imageUrl: checkmark },
+      { id: "1", name: "Advanced SEO", imageUrl: checkmark },
+      { id: "2", name: "Responsive Design", imageUrl: checkmark },
+      { id: "3", name: "E-commerce Integration", imageUrl: checkmark },
+      { id: "4", name: "Priority Support", imageUrl: checkmark },
+    ],
+  },
+  {
+    id: "2", 
+    title: "Premium Web",
+    description: "Comprehensive solution for large businesses",
+    price: "39999",
+    features: [
+      { id: "0", name: "Unlimited Pages", imageUrl: checkmark },
+      { id: "1", name: "Advanced SEO", imageUrl: checkmark },
+      { id: "2", name: "Responsive Design", imageUrl: checkmark },
+      { id: "3", name: "Custom Features", imageUrl: checkmark },
+      { id: "4", name: "24/7 Support", imageUrl: checkmark },
+    ],
+  },
+];
+
+export const aiServicesPricing = [
+  {
+    id: "0",
+    title: "Basic AI",
+    description: "For simple AI solutions",
+    price: "14999",
+    features: [
+      { id: "0", name: "Basic Chatbot", imageUrl: checkmark },
+      { id: "1", name: "Data Analysis", imageUrl: checkmark },
+      { id: "2", name: "Report Generation", imageUrl: checkmark },
+      { id: "3", name: "Basic Automation", imageUrl: checkmark },
+    ],
+  },
+  {
+    id: "1",
+    title: "Standard AI",
+    description: "For more advanced AI applications",
+    price: "29999",
+    features: [
+      { id: "0", name: "Advanced Chatbot", imageUrl: checkmark },
+      { id: "1", name: "Predictive Analysis", imageUrl: checkmark },
+      { id: "2", name: "Custom Reports", imageUrl: checkmark },
+      { id: "3", name: "Advanced Automation", imageUrl: checkmark },
+    ],
+  },
+  {
+    id: "2",
+    title: "Premium AI",
+    description: "Cutting-edge AI solutions",
+    price: "49999",
+    features: [
+      { id: "0", name: "AI Model Training", imageUrl: checkmark },
+      { id: "1", name: "Data Mining", imageUrl: checkmark },
+      { id: "2", name: "Full Automation", imageUrl: checkmark },
+      { id: "3", name: "24/7 Support", imageUrl: checkmark },
+    ],
+  },
+];
+
+
 import digitalMarketing from "../assets/digitalmarketing.png";
 import webDevelopment from "../assets/webdevelopment.png";
 import videoGraphy from "../assets/video.png";
