@@ -17,10 +17,17 @@
   scroll-behavior: smooth
 }
 
-.hidden-button-placeholder {
-  height: 48px; /* Adjust this height to match the actual button height */
-  margin-bottom: 24px; /* Adjust the bottom margin to match the button margin */
-  visibility: hidden;
+/* Ensure this is added after your Tailwind base styles */
+.ant-btn-primary {
+  background-color: #1890ff; /* Ant Design's default primary button color */
+  border-color: #1890ff; /* Ensure border color matches */
+  color: white; /* Set text color to white */
+}
+
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+  background-color: #40a9ff; /* Hover and focus color */
+  border-color: #40a9ff; /* Border color on hover and focus */
+  color: white; /* Text color on hover and focus */
 }
 
 .ant-tabs-tab,
@@ -55,6 +62,7 @@
 .ant-tabs-content {
   color: white;
 }
+
 
 .fade-in {
   animation: fadeIn 0.5s ease;

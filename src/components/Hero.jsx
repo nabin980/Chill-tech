@@ -4,14 +4,48 @@ import Section from "./Section";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
 import { heroIcons } from "../constants";
 import { ScrollParallax } from "react-just-parallax";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Generating from "./Generating";
 import Notification from "./Notification";
 import CompanyLogos from "./CompanyLogos";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Form, Modal, Input, InputNumber, Row, Col, Select } from "antd";
+
+const { Option } = Select;
 
 const Hero = () => {
+  const [visible, setVisible] = useState(false);
+  const [form] = Form.useForm();
+
+  const [selectedItems, setSelectedItems] = useState([]);
+
+  const handleSelectChange = (selectedItems)=> {
+    setSelectedItems(selectedItems);
+  }
+
+  const showModal = () => {
+    setVisible(true);
+  }
+
+  const handleOk = () => {
+    form
+      .validateFields()
+      .then(values => {
+        console.log('Form values:', values);
+        setVisible(false);
+        form.resetFields();
+      })
+      .catch(info => {
+        console.log('Validate Failed:', info)
+      })
+  }
+
+  const handleCancel = () => {
+    setVisible(false);
+    form.resetFields();
+  };
+
   const parallaxRef = useRef(null);
   const responsive = {
     superLargeDesktop: {
@@ -60,7 +94,7 @@ const Hero = () => {
             Elevate your digital strategy with Chill Tech. Transform your
             marketing with cutting-edge AI solutions.
           </p>
-          <Button href="#pricing" white>
+          <Button onClick={showModal}>
             Get started
           </Button>
         </div>
@@ -130,8 +164,8 @@ const Hero = () => {
                 </ScrollParallax>
               </div>
             </div>
-
             <Gradient />
+
           </div>
           <div className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]">
             <img
@@ -150,6 +184,87 @@ const Hero = () => {
       </div>
 
       <BottomLine />
+
+          <Modal
+          title="Get a Free Quote"
+          visible={visible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          className="modal-transparent"
+        >
+      <Form
+        form={form}
+        layout="vertical"
+        name="form_in_modal"
+      >
+        <Form.Item
+          name="name"
+          label="Name"
+          rules={[{ required: true, message: 'Please input your name!' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Row gutter={16}>
+          <Col span={12}>
+            <Form.Item
+              name="email"
+              label="Email"
+              rules={[
+                { type: 'email', message: 'The input is not valid E-mail!' },
+                { required: true, message: 'Please input your E-mail!' }
+              ]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col span={12}>
+          <Form.Item
+            name="phoneNumber"
+            label="Phone Number"
+            rules={[
+              { required: true, message: 'Please input your phone number!' },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  const phoneNumber = value && value.toString();
+                  if (!phoneNumber || phoneNumber.length === 10) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(new Error('Please enter 10 digits'));
+                },
+              }),
+            ]}
+          >
+            <InputNumber 
+              style={{ width: '100%' }}
+              min={0}  // Set minimum value to 0
+            />
+          </Form.Item>
+          </Col>
+        </Row>
+        <Form.Item
+          name="selectedItems"
+          label="Select Items"
+        >
+          <Select
+            mode="multiple"
+            placeholder="Select items"
+            value={selectedItems}
+            onChange={handleSelectChange}
+          >
+            <Option value="item1">Digital Marketing</Option>
+            <Option value="item2">Social Media Management</Option>
+\          </Select>
+        </Form.Item>
+        <Form.Item
+          name="query"
+          label="Tell us about your business"
+          rules={[{ required: true, message: 'Please input your query!' }]}
+        >
+          <Input.TextArea rows={4} />
+        </Form.Item>
+      </Form>
+    </Modal>
+
     </Section>
   );
 };
