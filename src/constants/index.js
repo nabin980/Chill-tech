@@ -301,9 +301,9 @@ export const pricing = [
     features: [
       { id: "0", name: "20" },
       { id: "1", name: "20" },
-      { id: "2", name: "Your Call" },
-      { id: "3", name: "2" },
-      { id: "4", imageUrl: checkmark },
+      { id: "2", imageUrl: checkmark},
+      { id: "3", name: "Your Call" },
+      { id: "4", name: "2"  },
       { id: "5", imageUrl: checkmark },
       { id: "6", imageUrl: checkmark },
       { id: "7", imageUrl: checkmark },
