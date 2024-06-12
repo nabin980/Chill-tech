@@ -17,11 +17,24 @@
   scroll-behavior: smooth
 }
 
-/* Ensure this is added after your Tailwind base styles */
+
 .ant-btn-primary {
-  background-color: #1890ff; /* Ant Design's default primary button color */
-  border-color: #1890ff; /* Ensure border color matches */
-  color: white; /* Set text color to white */
+  background-color: #1890ff; 
+  border-color: #1890ff; 
+  color: white; 
+}
+.mobile-view{
+  display: none;
+}
+
+@media  screen and (max-width:1050px) {
+  .desktop-view{
+    display:none;
+  }
+  .mobile-view{
+    display: flex;
+  }
+  
 }
 
 .ant-btn-primary:hover, .ant-btn-primary:focus {

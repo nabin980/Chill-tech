@@ -95,7 +95,7 @@ const Hero = () => {
             marketing with cutting-edge AI solutions.
           </p>
           <Button onClick={showModal}>
-            Get started
+            Get Your free Quote
           </Button>
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
