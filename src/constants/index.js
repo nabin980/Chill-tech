@@ -299,12 +299,11 @@ export const pricing = [
     description: "10% discount on yearly subscription",
     price: "26,999",
     features: [
-
       { id: "0", name: "20" },
       { id: "1", name: "20" },
-      { id: "2", name: "Your Call" },
-      { id: "3", name: "2" },
-      { id: "4", imageUrl: checkmark },
+      { id: "2", imageUrl: checkmark},
+      { id: "3", name: "Your Call" },
+      { id: "4", name: "2"  },
       { id: "5", imageUrl: checkmark },
       { id: "6", imageUrl: checkmark },
       { id: "7", imageUrl: checkmark },
@@ -312,7 +311,6 @@ export const pricing = [
       { id: "9", name: "Your Call" },
     ],
   },
-
 ];
 
 export const webDevelopmentPricing = [
@@ -356,7 +354,7 @@ export const webDevelopmentPricing = [
     id: "1",
     title: "Standard",
     description: "10% discount on yearly subscription",
-    price: "39,999",
+    price: "26,999",
     features: [
       { id: "0", name: "15" },
       { id: "1", name: "2" },
@@ -374,7 +372,7 @@ export const webDevelopmentPricing = [
     id: "2",
     title: "Premium",
     description: "10% discount on yearly subscription",
-    price: "26,999",
+    price: "36,999",
     features: [
       { id: "0", name: "20" },
       { id: "1", name: "3" },
@@ -386,12 +384,122 @@ export const webDevelopmentPricing = [
       { id: "7", imageUrl: checkmark },
       { id: "8", imageUrl: checkmark },
       { id: "9", name: "Your Call" },
-
-  
-
     ],
   },
+];
 
+export const pricingMobile = [
+  {
+    id: "0",
+    title: "Basic",
+    description: "10% discount on yearly subscription",
+    price: "5,999",
+    features: [
+      { id: "0", name: "11 FB/Insta Post" },
+      { id: "1", name: "11 Caption Writing" },
+      { id: "2", name: "Page Management", imageUrl: checkmark },
+      { id: "3", name: "1 Cover Poster" },
+      { id: "4", name: "1 Complimentary Reel" },
+      { id: "5", name: "Monthly Reporting", imageUrl: multiply },
+      { id: "6", name: "Strategic Collaboration", imageUrl: multiply },
+      { id: "7", name: "Basic Page Automation", imageUrl: multiply },
+      { id: "8", name: "AI Chatbot", imageUrl: multiply },
+      { id: "9", name: "Boosting(Your Call)" },
+    ],
+  },
+  {
+    id: "1",
+    title: "Standard",
+    description: "10% discount on yearly subscription",
+    price: "16,999",
+    features: [
+      { id: "0", name: "15 FB/Insta Post" },
+      { id: "1", name: "15 Caption Writing" },
+      { id: "2", name: "Page Management", imageUrl: checkmark },
+      { id: "3", name: "Cover Poster (Your Call)" },
+      { id: "4", name: "1 Complimentary Reel" },
+      { id: "5", name: "Monthly Reporting", imageUrl: checkmark },
+      { id: "6", name: "Strategic Collaboration", imageUrl: checkmark },
+      { id: "7", name: "Basic Page Automation", imageUrl: checkmark },
+      { id: "8", name: "AI Chatbot", imageUrl: multiply },
+      { id: "9", name: "Boosting(Your Call)" },
+    ],
+  },
+  {
+    id: "2",
+    title: "Premium",
+    description: "10% discount on yearly subscription",
+    price: "26,999",
+    features: [
+      { id: "0", name: "20 FB/Insta Post" },
+      { id: "1", name: "20 Caption Writing" },
+      { id: "2", name: "Page Management", imageUrl: checkmark },
+      { id: "3", name: "Cover Poster (Your Call)" },
+      { id: "4", name: "2 Complimentary Reel" },
+      { id: "5", name: "Monthly Reporting", imageUrl: checkmark },
+      { id: "6", name: "Strategic Collaboration", imageUrl: checkmark },
+      { id: "7", name: "Basic Page Automation", imageUrl: checkmark },
+      { id: "8", name: "AI Chatbot", imageUrl: checkmark },
+      { id: "9", name: "Boosting(Your Call)" },
+    ],
+  },
+];
+
+export const webDevelopmentPricingMobile = [
+  {
+    id: "0",
+    title: "Basic",
+    description: "10% discount on yearly subscription",
+    price: "22,499",
+    features: [
+      { id: "0", name: "11 FB/Insta Post" },
+      { id: "1", name: "1 Caption Video" },
+      { id: "2", name: "8 Short Reels" },
+      { id: "3", name: "1 Cover Poster" },
+      { id: "4", name: "Page Management", imageUrl: checkmark },
+      { id: "5", name: "Monthly Reporting", imageUrl: multiply },
+      { id: "6", name: "Strategic Collaboration", imageUrl: multiply },
+      { id: "7", name: "Basic Page Automation", imageUrl: multiply },
+      { id: "8", name: "AI Chatbot", imageUrl: multiply },
+      { id: "9", name: "Boosting(Your Call)" },
+    ],
+  },
+  {
+    id: "1",
+    title: "Standard",
+    description: "10% discount on yearly subscription",
+    price: "26,999",
+    features: [
+      { id: "0", name: "15 FB/Insta Post" },
+      { id: "1", name: "2 Caption Video" },
+      { id: "2", name: "10 Short Reels" },
+      { id: "3", name: "Cover Poster(Your Call)" },
+      { id: "4", name: "Page Management", imageUrl: checkmark },
+      { id: "5", name: "Monthly Reporting", imageUrl: checkmark },
+      { id: "6", name: "Strategic Collaboration", imageUrl: checkmark },
+      { id: "7", name: "Basic Page Automation", imageUrl: checkmark },
+      { id: "8", name: "AI Chatbot", imageUrl: multiply },
+      { id: "9", name: "Boosting(Your Call)" },
+    ],
+  },
+  {
+    id: "2",
+    title: "Premium",
+    description: "10% discount on yearly subscription",
+    price: "36,999",
+    features: [
+      { id: "0", name: "20 FB/Insta Post" },
+      { id: "1", name: "3 Caption Video" },
+      { id: "2", name: "14 Short Reels" },
+      { id: "3", name: "Cover Poster(Your Call)" },
+      { id: "4", name: "Page Management", imageUrl: checkmark },
+      { id: "5", name: "Monthly Reporting", imageUrl: checkmark },
+      { id: "6", name: "Strategic Collaboration", imageUrl: checkmark },
+      { id: "7", name: "Basic Page Automation", imageUrl: checkmark },
+      { id: "8", name: "AI Chatbot", imageUrl: checkmark },
+      { id: "9", name: "Boosting(Your Call)" },
+    ],
+  },
 ];
 
 export const aiServicesPricing = [
@@ -432,7 +540,6 @@ export const aiServicesPricing = [
     ],
   },
 ];
-
 
 import digitalMarketing from "../assets/digitalmarketing.png";
 import webDevelopment from "../assets/webdevelopment.png";

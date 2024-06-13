@@ -94,7 +94,9 @@ const Hero = () => {
             Elevate your digital strategy with Chill Tech. Transform your
             marketing with cutting-edge AI solutions.
           </p>
-          <Button onClick={showModal}>Get started</Button>
+          <Button onClick={showModal}>
+            Get Your free Quote
+          </Button>
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
           <div className="relative z-1 p-0.5 rounded-2xl bg-conic-gradient">
