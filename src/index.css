@@ -17,6 +17,10 @@
   scroll-behavior: smooth
 }
 
+.ant-input-number .ant-input-number-handler-wrap {
+  display: none;
+}
+
 
 .ant-btn-primary {
   background-color: #1890ff; 

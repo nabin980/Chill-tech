@@ -20,26 +20,26 @@ const Hero = () => {
 
   const [selectedItems, setSelectedItems] = useState([]);
 
-  const handleSelectChange = (selectedItems)=> {
+  const handleSelectChange = (selectedItems) => {
     setSelectedItems(selectedItems);
-  }
+  };
 
   const showModal = () => {
     setVisible(true);
-  }
+  };
 
   const handleOk = () => {
     form
       .validateFields()
-      .then(values => {
-        console.log('Form values:', values);
+      .then((values) => {
+        console.log("Form values:", values);
         setVisible(false);
         form.resetFields();
       })
-      .catch(info => {
-        console.log('Validate Failed:', info)
-      })
-  }
+      .catch((info) => {
+        console.log("Validate Failed:", info);
+      });
+  };
 
   const handleCancel = () => {
     setVisible(false);
@@ -104,7 +104,7 @@ const Hero = () => {
               <div className="h-[1.4rem] bg-n-10 rounded-t-[0.9rem]" />
 
               <div className="aspect-[33/40] rounded-b-[0.9rem] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490]">
-              <img src={robot} width={1024} height={490} alt="AI" />
+                <img src={robot} width={1024} height={490} alt="AI" />
                 {/* <Carousel
                   responsive={responsive}
                   swipeable={true}
@@ -165,7 +165,6 @@ const Hero = () => {
               </div>
             </div>
             <Gradient />
-
           </div>
           <div className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]">
             <img
@@ -185,95 +184,77 @@ const Hero = () => {
 
       <BottomLine />
 
-          <Modal
-          title="Get a Free Quote"
-          visible={visible}
-          onOk={handleOk}
-          onCancel={handleCancel}
-          className="modal-transparent"
-        >
-      <Form
-        form={form}
-        layout="vertical"
-        name="form_in_modal"
+      <Modal
+        title="Get a Free Quote"
+        visible={visible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        className="modal-transparent"
       >
-        <Form.Item
-          name="name"
-          label="Name"
-          rules={[{ required: true, message: 'Please input your name!' }]}
-        >
-          
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="Company name"
-          label="Company Name"
-          rules={[{ required: true, message: 'Please input your company name!' }]}
-        >
-          
-          <Input />
-        </Form.Item>
-        <Row gutter={16}>
-          <Col span={12}>
-            <Form.Item
-              name="email"
-              label="Email"
-              rules={[
-                { type: 'email', message: 'The input is not valid E-mail!' },
-                { required: true, message: 'Please input your E-mail!' }
-              ]}
-            >
-              <Input />
-            </Form.Item>
-          </Col>
-          <Col span={12}>
+        <Form form={form} layout="vertical" name="form_in_modal">
           <Form.Item
-            name="phoneNumber"
-            label="Phone Number"
-            rules={[
-              { required: true, message: 'Please input your phone number!' },
-              ({ getFieldValue }) => ({
-                validator(_, value) {
-                  const phoneNumber = value && value.toString();
-                  if (!phoneNumber || phoneNumber.length === 10) {
-                    return Promise.resolve();
-                  }
-                  return Promise.reject(new Error('Please enter 10 digits'));
-                },
-              }),
-            ]}
+            name="name"
+            label="Name"
+            rules={[{ required: true, message: "Please input your name!" }]}
           >
-            <InputNumber 
-              style={{ width: '100%' }}
-              min={0}  // Set minimum value to 0
-            />
+            <Input />
           </Form.Item>
-          </Col>
-        </Row>
-        <Form.Item
-          name="selectedItems"
-          label="Select Services"
-        >
-          <Select
-            mode="multiple"
-            placeholder="Select Services"
-            value={selectedItems}
-            onChange={handleSelectChange}
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                name="email"
+                label="Email"
+                rules={[
+                  { type: "email", message: "The input is not valid E-mail!" },
+                  { required: true, message: "Please input your E-mail!" },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                name="phoneNumber"
+                label="Phone Number"
+                rules={[
+                  { required: true, message: "Please input your phone number!" },
+                  ({ getFieldValue }) => ({
+                    validator(_, value) {
+                      const phoneNumber = value && value.toString();
+                      if (!phoneNumber || phoneNumber.length === 10) {
+                        return Promise.resolve();
+                      }
+                      return Promise.reject(
+                        new Error("Please enter 10 digits")
+                      );
+                    },
+                  }),
+                ]}
+              >
+                <InputNumber style={{ width: "100%" }} min={0} />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Form.Item name="selectedItems" label="Select Our Services">
+            <Select
+              mode="multiple"
+              placeholder="Select Service"
+              value={selectedItems}
+              onChange={handleSelectChange}
+            >
+              <Option value="item1">Digital Marketing</Option>
+              <Option value="item2">Social Media Management</Option>
+            </Select>
+          </Form.Item>
+          <Form.Item
+            name="query"
+            label="Tell us about your business"
+            rules={[{ required: true, message: "Please input your query!" }]}
           >
-            <Option value="item1">Digital Marketing</Option>
-            <Option value="item2">Social Media Management</Option>
-\          </Select>
-        </Form.Item>
-        <Form.Item
-          name="query"
-          label="Tell us about your business"
-          rules={[{ required: true, message: 'Please input your query!' }]}
-        >
-          <Input.TextArea rows={4} />
-        </Form.Item>
-      </Form>
-    </Modal>
-
+            <Input.TextArea rows={4} />
+          </Form.Item>
+        </Form>
+      </Modal>
     </Section>
   );
 };
