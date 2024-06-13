@@ -1,24 +1,50 @@
-import { curve, heroBackground, robot, robot2 } from "../assets";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import {
+  Form,
+  Modal,
+  Input,
+  InputNumber,
+  Row,
+  Col,
+  Select,
+} from "antd";
+import { curve, heroBackground, robot } from "../assets";
 import Button from "./Button";
 import Section from "./Section";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
 import { heroIcons } from "../constants";
 import { ScrollParallax } from "react-just-parallax";
-import { useRef, useState } from "react";
 import Generating from "./Generating";
 import Notification from "./Notification";
 import CompanyLogos from "./CompanyLogos";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import { Form, Modal, Input, InputNumber, Row, Col, Select } from "antd";
 
 const { Option } = Select;
 
 const Hero = () => {
+  const formRef = useRef();
   const [visible, setVisible] = useState(false);
-  const [form] = Form.useForm();
-
   const [selectedItems, setSelectedItems] = useState([]);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    const form = formRef.current;
+
+    emailjs
+      .sendForm("service_5hsijy9", "template_uyv04zn", form, {
+        publicKey: "_277DntGEBN13mq7H",
+      })
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.text);
+          setVisible(false); 
+          form.resetFields(); 
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
 
   const handleSelectChange = (selectedItems) => {
     setSelectedItems(selectedItems);
@@ -28,28 +54,13 @@ const Hero = () => {
     setVisible(true);
   };
 
-  const handleOk = () => {
-    form
-      .validateFields()
-      .then((values) => {
-        console.log("Form values:", values);
-        setVisible(false);
-        form.resetFields();
-      })
-      .catch((info) => {
-        console.log("Validate Failed:", info);
-      });
-  };
-
   const handleCancel = () => {
     setVisible(false);
-    form.resetFields();
+    formRef.current.resetFields();
   };
 
-  const parallaxRef = useRef(null);
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 1,
     },
@@ -75,10 +86,10 @@ const Hero = () => {
       customPaddings
       id="hero"
     >
-      <div className="container relative" ref={parallaxRef}>
+      <div className="container relative">
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
           <h1 className="mb-6 h1">
-            Explore the Possibilities of&nbsp;Digital&nbsp;World with {` `}
+            Explore the Possibilities of&nbsp;Digital&nbsp;World with{" "}
             <span className="relative inline-block">
               Chill Tech{" "}
               <img
@@ -94,59 +105,14 @@ const Hero = () => {
             Elevate your digital strategy with Chill Tech. Transform your
             marketing with cutting-edge AI solutions.
           </p>
-          <Button onClick={showModal}>
-            Get Your free Quote
-          </Button>
+          <Button onClick={showModal}>Get Your Free Quote</Button>
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
           <div className="relative z-1 p-0.5 rounded-2xl bg-conic-gradient">
             <div className="relative bg-n-8 rounded-[1rem]">
               <div className="h-[1.4rem] bg-n-10 rounded-t-[0.9rem]" />
-
               <div className="aspect-[33/40] rounded-b-[0.9rem] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490]">
                 <img src={robot} width={1024} height={490} alt="AI" />
-                {/* <Carousel
-                  responsive={responsive}
-                  swipeable={true}
-                  infinite={true}
-                  removeArrowOnDeviceType={[
-                    "tablet",
-                    "mobile",
-                    "superLargeDesktop",
-                    "desktop",
-                  ]}
-                  autoPlay={true}
-                  autoPlaySpeed={5000}
-                  className="w-full scale-[1.7] translate-y-[8%] md:scale-[1] md:-translate-y-[10%] lg:-translate-y-[23%]"
-                >
-                  <div>
-                    {" "}
-                    <img src={robot} width={1024} height={490} alt="AI" />
-                  </div>
-                  <div>
-                    {" "}
-                    <div>
-                      {" "}
-                      <video src={robot2} width={1024} height={490} alt="AI" autoPlay mute/>
-                    </div>
-                  </div>
-                  <div>
-                    {" "}
-                    <div>
-                      {" "}
-                      <img src={robot} width={1024} height={490} alt="AI" />
-                    </div>
-                  </div>
-                  <div>
-                    {" "}
-                    <div>
-                      {" "}
-                      <img src={robot} width={1024} height={490} alt="AI" />
-                    </div>
-                  </div>
-                </Carousel> */}
-
-                {/* <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2" /> */}
                 <ScrollParallax isAbsolutelyPositioned>
                   <ul className="hidden absolute -left-[5.5rem] bottom-[7.5rem] px-1 py-1 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2xl xl:flex">
                     {heroIcons.map((icon, index) => (
@@ -175,29 +141,33 @@ const Hero = () => {
               alt="hero"
             />
           </div>
-
           <BackgroundCircles />
         </div>
-
         <CompanyLogos className="relative z-10 hidden mt-20 lg:block" />
       </div>
-
       <BottomLine />
-
       <Modal
         title="Get a Free Quote"
         visible={visible}
-        onOk={handleOk}
+        onOk={sendEmail}
         onCancel={handleCancel}
         className="modal-transparent"
       >
-        <Form form={form} layout="vertical" name="form_in_modal">
+        <Form ref={formRef} layout="vertical" name="form_in_modal">
           <Form.Item
             name="name"
             label="Name"
             rules={[{ required: true, message: "Please input your name!" }]}
           >
             <Input />
+          </Form.Item>
+          <Form.Item
+            name="companyName"
+            label="Company Name"
+            rules={[{ required: true, message: "Please input your company name!" }]}
+          >
+            <Input />
+           
           </Form.Item>
           <Row gutter={16}>
             <Col span={12}>
