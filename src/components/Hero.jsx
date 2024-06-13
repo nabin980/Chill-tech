@@ -202,6 +202,15 @@ const Hero = () => {
           label="Name"
           rules={[{ required: true, message: 'Please input your name!' }]}
         >
+          
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="Company name"
+          label="Company Name"
+          rules={[{ required: true, message: 'Please input your company name!' }]}
+        >
+          
           <Input />
         </Form.Item>
         <Row gutter={16}>
@@ -243,11 +252,11 @@ const Hero = () => {
         </Row>
         <Form.Item
           name="selectedItems"
-          label="Select Items"
+          label="Select Services"
         >
           <Select
             mode="multiple"
-            placeholder="Select items"
+            placeholder="Select Services"
             value={selectedItems}
             onChange={handleSelectChange}
           >
