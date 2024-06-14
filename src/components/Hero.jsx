@@ -1,14 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import {
-  Form,
-  Modal,
-  Input,
-  InputNumber,
-  Row,
-  Col,
-  Select,
-} from "antd";
+import { Modal, InputNumber, Row, Col, Select } from "antd";
 import { curve, heroBackground, robot } from "../assets";
 import Button from "./Button";
 import Section from "./Section";
@@ -22,13 +14,22 @@ import CompanyLogos from "./CompanyLogos";
 const { Option } = Select;
 
 const Hero = () => {
-  const formRef = useRef();
+  const formRef = useRef(null);
   const [visible, setVisible] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [formValues, setFormValues] = useState({
+    name: "",
+    companyName: "",
+    email: "",
+    phoneNumber: "",
+    selectedItems: [],
+    query: "",
+  });
 
   const sendEmail = (e) => {
     e.preventDefault();
     const form = formRef.current;
+    console.log(formValues);
 
     emailjs
       .sendForm("service_5hsijy9", "template_uyv04zn", form, {
@@ -37,17 +38,28 @@ const Hero = () => {
       .then(
         (result) => {
           console.log("SUCCESS!", result.text);
-          setVisible(false); 
-          form.resetFields(); 
+          setVisible(false);
+          form.reset();
         },
         (error) => {
-          console.log("FAILED...", error.text);
+          console.error("FAILED...", error);
         }
       );
   };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
   const handleSelectChange = (selectedItems) => {
-    setSelectedItems(selectedItems);
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      selectedItems,
+    }));
   };
 
   const showModal = () => {
@@ -56,26 +68,18 @@ const Hero = () => {
 
   const handleCancel = () => {
     setVisible(false);
-    formRef.current.resetFields();
+    setFormValues({
+      name: "",
+      companyName: "",
+      email: "",
+      phoneNumber: "",
+      selectedItems: [],
+      query: "",
+    });
   };
 
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
+  const validatePhoneNumber = (phoneNumber) => {
+    return phoneNumber.length === 10;
   };
 
   return (
@@ -102,8 +106,7 @@ const Hero = () => {
             </span>
           </h1>
           <p className="max-w-3xl mx-auto mb-6 body-1 text-n-2 lg:mb-8">
-            Elevate your digital strategy with Chill Tech. Transform your
-            marketing with cutting-edge AI solutions.
+            Elevate your digital strategy with Chill Tech. Transform your marketing with cutting-edge AI solutions.
           </p>
           <Button onClick={showModal}>Get Your Free Quote</Button>
         </div>
@@ -153,80 +156,102 @@ const Hero = () => {
         onCancel={handleCancel}
         className="modal-transparent"
       >
-        <Form ref={formRef} layout="vertical" name="form_in_modal">
-          <Form.Item
-            name="name"
-            label="Name"
-            rules={[{ required: true, message: "Please input your name!" }]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="companyName"
-            label="Company Name"
-            rules={[{ required: true, message: "Please input your company name!" }]}
-          >
-            <Input />
-           
-          </Form.Item>
+        <form ref={formRef} onSubmit={sendEmail} layout="vertical">
           <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                name="email"
-                label="Email"
-                rules={[
-                  { type: "email", message: "The input is not valid E-mail!" },
-                  { required: true, message: "Please input your E-mail!" },
-                ]}
-              >
-                <Input />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item
-                name="phoneNumber"
-                label="Phone Number"
-                rules={[
-                  { required: true, message: "Please input your phone number!" },
-                  ({ getFieldValue }) => ({
-                    validator(_, value) {
-                      const phoneNumber = value && value.toString();
-                      if (!phoneNumber || phoneNumber.length === 10) {
-                        return Promise.resolve();
-                      }
-                      return Promise.reject(
-                        new Error("Please enter 10 digits")
-                      );
-                    },
-                  }),
-                ]}
-              >
-                <InputNumber style={{ width: "100%" }} min={0} />
-              </Form.Item>
+            <Col span={24}>
+              <label>Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formValues.name}
+                onChange={handleInputChange}
+                required
+                className="w-full p-2 border rounded"
+              />
             </Col>
           </Row>
-          <Form.Item name="selectedItems" label="Select Our Services">
-            <Select
-              mode="multiple"
-              placeholder="Select Service"
-              value={selectedItems}
-              onChange={handleSelectChange}
-            >
-              <Option value="item1">Digital Marketing</Option>
-              <Option value="item2">Social Media Management</Option>
-            </Select>
-          </Form.Item>
-          <Form.Item
-            name="query"
-            label="Tell us about your business"
-            rules={[{ required: true, message: "Please input your query!" }]}
-          >
-            <Input.TextArea rows={4} />
-          </Form.Item>
-        </Form>
+          <Row gutter={16}>
+            <Col span={24}>
+              <label>Company Name</label>
+              <input
+                type="text"
+                name="companyName"
+                value={formValues.companyName}
+                onChange={handleInputChange}
+                required
+                className="w-full p-2 border rounded"
+              />
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={12}>
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formValues.email}
+                onChange={handleInputChange}
+                required
+                className="w-full p-2 border rounded"
+              />
+            </Col>
+            <Col span={12}>
+              <label>Phone Number</label>
+              <InputNumber
+                name="phoneNumber"
+                value={formValues.phoneNumber}
+                onChange={(value) => setFormValues((prevValues) => ({
+                  ...prevValues,
+                  phoneNumber: value,
+                }))}
+                required
+                className="w-full"
+                min={0}
+                style={{ width: '100%' }}
+              />
+              {!validatePhoneNumber(formValues.phoneNumber) && (
+                <span className="text-red-500">Please enter 10 digits</span>
+              )}
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={24}>
+              <label>Select Our Services</label>
+              <Select
+                mode="multiple"
+                placeholder="Select Service"
+                value={formValues.selectedItems}
+                onChange={handleSelectChange}
+                className="w-full"
+              >
+                <Option value="item1">Digital Marketing</Option>
+                <Option value="item2">Social Media Management</Option>
+              </Select>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={24}>
+              <label>Tell us about your business</label>
+              <textarea
+                name="query"
+                value={formValues.query}
+                onChange={handleInputChange}
+                required
+                rows="4"
+                className="w-full p-2 border rounded"
+              />
+            </Col>
+          </Row>
+          <div className="flex justify-end">
+            <button type="submit" className="btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
       </Modal>
     </Section>
   );
 };
 
 export default Hero;
+
