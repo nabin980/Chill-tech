@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { Modal, InputNumber, Row, Col, Select } from "antd";
+import { Modal, InputNumber, Row, Col, Select, notification } from "antd";
 import { curve, heroBackground, robot } from "../assets";
 import Button from "./Button";
 import Section from "./Section";
@@ -29,16 +29,25 @@ const Hero = () => {
     e.preventDefault();
     const form = formRef.current;
     console.log(formValues);
+
     emailjs
       .send("service_5hsijy9", "template_uyv04zn", formValues, "_277DntGEBN13mq7H")
       .then(
         (result) => {
           console.log("SUCCESS!", result.text);
+          notification.success({
+            message: 'Email Sent',
+            description: 'Your email has been sent successfully!',
+          });
           setVisible(false);
           form.reset();
         },
         (error) => {
           console.error("FAILED...", error);
+          notification.error({
+            message: 'Email Failed',
+            description: 'There was an error sending your email. Please try again.',
+          });
         }
       );
   };
