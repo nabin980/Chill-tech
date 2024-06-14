@@ -7,7 +7,6 @@ import Section from "./Section";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
 import { heroIcons } from "../constants";
 import { ScrollParallax } from "react-just-parallax";
-import Generating from "./Generating";
 import Notification from "./Notification";
 import CompanyLogos from "./CompanyLogos";
 
@@ -22,7 +21,7 @@ const Hero = () => {
     companyName: "",
     email: "",
     phoneNumber: "",
-    selectedItems: [],
+    selectedItems: "",
     query: "",
   });
 
@@ -30,11 +29,8 @@ const Hero = () => {
     e.preventDefault();
     const form = formRef.current;
     console.log(formValues);
-
     emailjs
-      .sendForm("service_5hsijy9", "template_uyv04zn", form, {
-        publicKey: "_277DntGEBN13mq7H",
-      })
+      .send("service_5hsijy9", "template_uyv04zn", formValues, "_277DntGEBN13mq7H")
       .then(
         (result) => {
           console.log("SUCCESS!", result.text);
@@ -79,7 +75,7 @@ const Hero = () => {
   };
 
   const validatePhoneNumber = (phoneNumber) => {
-    return phoneNumber.length === 10;
+    return phoneNumber && phoneNumber.length === 10;
   };
 
   return (
@@ -218,14 +214,15 @@ const Hero = () => {
             <Col span={24}>
               <label>Select Our Services</label>
               <Select
+                name="selectedItems"
                 mode="multiple"
                 placeholder="Select Service"
                 value={formValues.selectedItems}
                 onChange={handleSelectChange}
                 className="w-full"
               >
-                <Option value="item1">Digital Marketing</Option>
-                <Option value="item2">Social Media Management</Option>
+                <Option value="Digital Marketing">Digital Marketing</Option>
+                <Option value="Social Media Management">Social Media Management</Option>
               </Select>
             </Col>
           </Row>
@@ -254,4 +251,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
