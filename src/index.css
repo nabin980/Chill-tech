@@ -20,6 +20,18 @@
 .ant-input-number .ant-input-number-handler-wrap {
   display: none;
 }
+ 
+@media screen and (max-width:450px) {
+  .ant-tabs .ant-tabs-tab{
+    font-size: 12px;
+  }
+}
+@media screen and (max-width:405px) {
+  .ant-tabs .ant-tabs-tab{
+    font-size: 10px;
+  }
+}
+
 
 
 .ant-btn-primary {

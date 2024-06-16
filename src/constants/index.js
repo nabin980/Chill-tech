@@ -608,6 +608,7 @@ export const benefits = [
 ];
 
 import youtube from "../assets/youtube.svg";
+import email from "../assets/email.svg";
 
 export const socials = [
   {
@@ -635,5 +636,11 @@ export const socials = [
     title: "Youtube",
     iconUrl: youtube,
     url: "https://www.youtube.com/@chillproduction9999",
+  },
+  {
+    id: "5",
+    title: "Email",
+    iconUrl: email,
+    url: "mailto:techwings01@gmail.com",
   },
 ];

@@ -41,18 +41,30 @@ const PricingList = () => {
         </Tabs>
       </div>
 
-      <div className="mobile-view">
-        <Tabs defaultActiveKey="socialMediaMobile" centered style={{ borderBottom: 'none' }}>
-          <TabPane tab="Digital Marketing" key="socialMediaMobile">
+      <div className="mobile-view ">
+      <Tabs
+        defaultActiveKey="digitalMarketingMobile"
+        centered
+        
+        tabBarStyle={{ display: 'flex', overflowX: 'auto' }}
+        className="flex overflow-x-auto "
+      >
+          <TabPane tab="Digital Marketing" key="socialMediaMobile" >
             <div className="fade-in">
               <PricingCategory category={serviceCategoriesMobile.socialMediaMobile} showAllFeatures={showAllFeatures} isImageUrl={isImageUrl} />
             </div>
           </TabPane>
-          <TabPane tab="Social Media Management" key="webDevelopmentMobile">
+          <TabPane tab="Social Media Management" key="webDevelopmentMobile" >
             <div className="fade-in">
               <PricingCategory category={serviceCategoriesMobile.webDevelopmentMobile} showAllFeatures={showAllFeatures} isImageUrl={isImageUrl} />
             </div>
           </TabPane>
+          <TabPane tab="Social Media " key="webDevelopmentMobile" >
+            <div className="fade-in">
+              <PricingCategory category={serviceCategoriesMobile.webDevelopmentMobile} showAllFeatures={showAllFeatures} isImageUrl={isImageUrl} />
+            </div>
+          </TabPane>
+          
         </Tabs>
       </div>
     </>
