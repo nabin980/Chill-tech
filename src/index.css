@@ -110,7 +110,7 @@
 
 @layer base {
   body {
-    @apply font-sans text-base bg-n-8 text-n-1;
+    @apply font-sans text-base bg-sky-600 text-n-1;
   }
 }
 
