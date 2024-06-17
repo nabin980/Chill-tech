@@ -25,7 +25,7 @@ import background from "./background.jpg";
 import curve from "./hero/curve.png";
 import robot from "./rumpum.png";
 import robot2 from "../assets/1.mp4";
-import heroBackground from "../assets/bluesky.jpg";
+import heroBackground from "../assets/cloud3.jpg";
 
 import curve1 from "./collaboration/curve-1.svg";
 import curve2 from "./collaboration/curve-2.svg";

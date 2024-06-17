@@ -111,6 +111,7 @@
 @layer base {
   body {
     @apply font-sans text-base bg-sky-600 text-n-1;
+    background-image: url(./assets/cloud2.jpg);
   }
 }
 

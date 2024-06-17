@@ -142,13 +142,13 @@ const Hero = () => {
             <Gradient />
           </div>
           <div className="absolute -top-[54%] left-1/2 w-full overflow-hidden -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]">
-            <img
+            {/* <img
               src={heroBackground}
               className="w-full object-cover"
               width={1440}
               height={1800}
               alt="hero"
-            />
+            /> */}
           </div>
           {/* <BackgroundCircles /> */}
         </div>
