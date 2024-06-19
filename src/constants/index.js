@@ -82,10 +82,11 @@ export const notificationImages = [notification4, notification3, notification2];
 export const companyLogos = [
   {
     id: "0",
-    title: "Aastha",
-    companylogo: aasthalogo,
-    url: "https://www.instagram.com/aastha.footwears?igsh=MXZra3hjaHYyaG12ZQ==",
+    title: "Vicum",
+    companylogo: vicuna,
+    url: "https://www.instagram.com/vicuna_nepal?igsh=ZWw2aDNoN2Nob2U0",
   },
+  
 
   {
     id: "1",
@@ -102,9 +103,9 @@ export const companyLogos = [
   },
   {
     id: "3",
-    title: "Vicum",
-    companylogo: vicuna,
-    url: "https://www.instagram.com/vicuna_nepal?igsh=ZWw2aDNoN2Nob2U0",
+    title: "Aastha",
+    companylogo: aasthalogo,
+    url: "https://www.instagram.com/aastha.footwears?igsh=MXZra3hjaHYyaG12ZQ==",
   },
 ];
 

@@ -19,7 +19,7 @@ const Services = () => {
   return (
     <Section id="how-to-use">
       <div className="container">
-        <Heading title="Fly with Chill Tech" text="Welcome to AI Era." />
+        <Heading className="text-sky-400 "title="Fly with Chill Tech" text="Welcome to AI Era." />
 
         <div className="relative">
           <div className="relative z-1 flex items-center h-[39rem] mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden lg:p-20 xl:h-[46rem]">
@@ -33,9 +33,9 @@ const Services = () => {
               />
             </div>
 
-            <div className="relative z-1 max-w-[17rem] ml-auto backdrop-blur-sm p-5 rounded">
+            <div className="relative z-1 max-w-[17rem] ml-auto backdrop-blur-sm p-5 rounded text-sky-600">
               <h4 className="mb-4 h4">AI Marketing</h4>
-              <p className="body-2 mb-[3rem] text-white">
+              <p className="body-2 mb-[3rem] ">
                 Digital marketing is dead, AI marketing is what survives.
               </p>
               <ul className="body-2">
@@ -87,10 +87,10 @@ const Services = () => {
               <PhotoChatMessage />
             </div>
 
-            <div className="p-4 bg-n-7 rounded-3xl overflow-hidden lg:min-h-[46rem]">
+            <div className="p-4 creative-content rounded-3xl overflow-hidden lg:min-h-[46rem]">
               <div className="px-4 py-12 xl:px-8">
                 <h4 className="mb-4 h4">Creative Content</h4>
-                <p className="body-2 mb-[2rem] text-n-3">
+                <p className="body-2 mb-[2rem] ">
                 Stay ahead of the curve with Chill Tech, where creativity meets trending market insights. What will you create?
                 </p>
 
@@ -101,13 +101,13 @@ const Services = () => {
                       className={`rounded-2xl flex items-center justify-center ${
                         index === 2
                           ? "w-[3rem] h-[3rem] p-0.25 bg-conic-gradient md:w-[4.5rem] md:h-[4.5rem]"
-                          : "flex w-10 h-10 bg-n-6 md:w-15 md:h-15"
+                          : "flex w-10 h-10 bg-sky-600 md:w-15 md:h-15"
                       }`}
                     >
                       <div
                         className={
                           index === 2
-                            ? "flex items-center justify-center w-full h-full bg-n-7 rounded-[1rem]"
+                            ? "flex items-center justify-center w-full h-full bg-sky-600 rounded-[1rem]"
                             : ""
                         }
                       >

@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <Section crosses className="!px-0 !py-10">
       <div className="container flex sm:justify-between justify-center items-center gap-10 max-sm:flex-col">
-        <p className="caption text-n-4 lg:block flex flex-col gap-2">
+        <p className="caption text-n-1 lg:block flex flex-col gap-2">
           <div>
             © {new Date().getFullYear()} Chill Tech. All rights reserved.
           </div>
@@ -22,7 +22,7 @@ const Footer = () => {
               key={item.id}
               href={item.url}
               target="_blank"
-              className="flex items-center justify-center w-10 h-10 bg-n-7 rounded-full transition-colors hover:bg-n-6"
+              className="flex items-center justify-center w-10 h-10 bg-sky-400 rounded-full transition-colors hover:bg-sky-200"
             >
               <img src={item.iconUrl} width={16} height={16} alt={item.title} />
             </a>

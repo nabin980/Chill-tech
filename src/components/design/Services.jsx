@@ -1,5 +1,6 @@
 import { brainwaveWhiteSymbol, gradient, play } from "../../assets";
 import ChatBubbleWing from "../../assets/svg/ChatBubbleWing";
+import chillTech from "../../assets/chill-head.png"
 
 export const Gradient = () => {
   return (
@@ -17,20 +18,20 @@ export const Gradient = () => {
 
 export const PhotoChatMessage = () => {
   return (
-    <div className="absolute top-8 right-8 max-w-[17.5rem] py-6 px-8 bg-black rounded-t-xl rounded-bl-xl font-code text-base lg:top-16 lg:right-[8.75rem] lg:max-w-[17.5rem]">
+    <div className="absolute top-8 right-8 max-w-[17.5rem] py-6 px-8 bg-sky-500 rounded-t-xl rounded-bl-xl font-code text-base lg:top-16 lg:right-[8.75rem] lg:max-w-[17.5rem]">
       Hey Chill Tech,
-      <ChatBubbleWing className="absolute bottom-0 left-full" />
+      <ChatBubbleWing className="absolute bottom-0 left-full " />
     </div>
   );
 };
 
 export const VideoChatMessage = () => {
   return (
-    <div className="absolute top-8 left-[3.125rem] w-full max-w-[14rem] pt-2.5 pr-2.5 pb-7 pl-5 bg-n-6 rounded-t-xl rounded-br-xl font-code text-base md:max-w-[17.5rem]">
+    <div className="absolute top-8 left-[3.125rem] w-full max-w-[14rem] pt-2.5 pr-2.5 pb-7 pl-5 bg-sky-500 rounded-t-xl rounded-br-xl font-code text-base md:max-w-[17.5rem]">
       Content generated!
-      <div className="absolute left-5 -bottom-[1.125rem] flex items-center justify-center w-[2.25rem] h-[2.25rem] bg-color-1 rounded-[0.75rem]">
+      <div className="absolute left-5 -bottom-[1.125rem] flex items-center justify-center w-[2.25rem] h-[2.25rem] bg-gray-950 rounded-[0.75rem]">
         <img
-          src={brainwaveWhiteSymbol}
+          src={chillTech}
           width={26}
           height={26}
           alt="Chill Tech"

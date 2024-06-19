@@ -110,7 +110,7 @@ const Hero = () => {
               />
             </span>
           </h1>
-          <p className="max-w-3xl mx-auto mb-6 body-1 text-n-2 lg:mb-8">
+          <p className="max-w-3xl mx-auto mb-6 body-1 text-sky-200 lg:mb-8">
             Elevate your digital strategy with Chill Tech. Transform your marketing with cutting-edge AI solutions.
           </p>
           <Button onClick={showModal}>Get Your Free Quote</Button>

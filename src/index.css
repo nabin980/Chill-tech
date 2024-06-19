@@ -114,6 +114,10 @@
     background-image: url(./assets/cloud2.jpg);
   }
 }
+.creative-content,.subscription{
+  background-image: url(./assets/cloud2.jpg);
+
+}
 
 /* @layer base {
   body {
