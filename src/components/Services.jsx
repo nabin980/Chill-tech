@@ -19,7 +19,7 @@ const Services = () => {
   return (
     <Section id="how-to-use">
       <div className="container">
-        <Heading className="text-sky-400 "title="Fly with Chill Tech" text="Welcome to AI Era." />
+        <Heading className="text-sky-400 flex flex-col text-center "title="Fly with Chill Tech" text="Welcome to AI Era." />
 
         <div className="relative">
           <div className="relative z-1 flex items-center h-[39rem] mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden lg:p-20 xl:h-[46rem]">

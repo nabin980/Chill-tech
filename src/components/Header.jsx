@@ -45,7 +45,7 @@ const Header = () => {
         <nav
           className={`${
             openNavigation ? "flex" : "hidden"
-          } fixed top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
+          } fixed top-[8rem] left-0 right-0 bottom-0   lg:static lg:flex lg:mx-auto lg:bg-transparent`}
         >
           <div className="relative flex flex-col items-center justify-center m-auto z-2 lg:flex-row">
             {navigation.map((item) => (
@@ -66,7 +66,7 @@ const Header = () => {
             ))}
           </div>
 
-          <HamburgerMenu />
+          <HamburgerMenu  />
         </nav>
         {/* 
         <a

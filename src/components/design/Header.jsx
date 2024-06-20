@@ -1,4 +1,5 @@
-import { background } from "../../assets";
+// import { background } from "../../assets";
+import background from "../../assets/cloud2.jpg"
 
 export const Rings = () => {
   return (
@@ -30,7 +31,7 @@ export const BackgroundCircles = () => {
 
 export const HamburgerMenu = () => {
   return (
-    <div className="absolute inset-0 pointer-events-none lg:hidden">
+    <div className="absolute inset-0 pointer-events-none hamburger-background lg:hidden">
       <div className="absolute inset-0 opacity-[.03]">
         <img
           className="w-full h-full object-cover"
@@ -43,9 +44,9 @@ export const HamburgerMenu = () => {
 
       <Rings />
 
-      <SideLines />
+      {/* <SideLines /> */}
 
-      <BackgroundCircles />
+      {/* <BackgroundCircles /> */}
     </div>
   );
 };
