@@ -556,7 +556,7 @@ export const benefits = [
     text: "Harness the power of digital channels to effectively reach and engage with your target audience.",
     backgroundUrl: "./src/assets/benefits/card-1.svg",
     iconUrl: digitalMarketing,
-    imageUrl: benefitImage2,
+    // imageUrl: benefitImage2,
     address: "https://tailwindcss.com/",
   },
   {

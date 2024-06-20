@@ -76,7 +76,7 @@ const PricingCategory = ({ category, showAllFeatures, isImageUrl }) => (
     {category.map((item, index) => (
       <div
         key={item.id}
-        className="subscription w-[19rem] max-lg:w-full px-6  rounded-[2rem] lg:w-auto py-8 hover:scale-105 transition ease-in-out delay-80"
+        className="subscription w-[19rem] max-lg:w-full px-6  rounded-[2rem] lg:w-auto py-8 hover:scale-105 transition ease-in-out delay-80 bg-sky-950"
       >
         <h4
           className="mb-4 h4"
