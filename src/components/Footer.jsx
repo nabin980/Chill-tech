@@ -6,9 +6,9 @@ import image2 from "../assets/phone.svg"
 
 const Footer = () => {
   return (
-    <Section crosses className="!px-0 !py-10">
+    <Section crosses className="!px-0 !py-10 lg:bg-custom-gradient lg:backdrop-blur-sm   ">
       <div className="container flex sm:justify-between justify-center items-center gap-10 max-sm:flex-col">
-        <p className="caption text-n-1 lg:block flex flex-col gap-2">
+        <p className="caption text-black lg:block flex flex-col gap-2">
           <div>
             © {new Date().getFullYear()} Chill Tech. All rights reserved.
           </div>

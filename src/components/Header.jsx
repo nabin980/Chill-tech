@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-50  border-b border-n-6 lg:bg-custom-gradient lg:backdrop-blur-sm ${
+      className={`fixed top-0 left-0 w-full z-50  border-b  lg:bg-custom-gradient lg:backdrop-blur-sm ${
         openNavigation
           ? "bg-custom-gradient"
           : "bg-custom-gradient backdrop-blur-sm"
@@ -45,7 +45,7 @@ const Header = () => {
         <nav
           className={`${
             openNavigation ? "flex" : "hidden"
-          } fixed top-[8rem] left-0 right-0 bottom-0   lg:static lg:flex lg:mx-auto lg:bg-transparent`}
+          } fixed top-[8rem] left-0 right-0 bottom-0 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
         >
           <div className="relative flex flex-col items-center justify-center m-auto z-2 lg:flex-row">
             {navigation.map((item) => (
