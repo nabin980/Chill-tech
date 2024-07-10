@@ -21,35 +21,85 @@ const Hero = () => {
     companyName: "",
     email: "",
     phoneNumber: "",
-    selectedItems: "",
+    selectedItems: [],
     query: "",
   });
+  const [errors, setErrors] = useState({});
 
   const sendEmail = (e) => {
     e.preventDefault();
-    const form = formRef.current;
-    console.log(formValues);
+    if (validateForm()) {
+      const form = formRef.current;
+      console.log(formValues);
 
-    emailjs
-      .send("service_5hsijy9", "template_uyv04zn", formValues, "_277DntGEBN13mq7H")
-      .then(
-        (result) => {
-          console.log("SUCCESS!", result.text);
-          notification.success({
-            message: 'Email Sent',
-            description: 'Your email has been sent successfully!',
-          });
-          setVisible(false);
-          form.reset();
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          notification.error({
-            message: 'Email Failed',
-            description: 'There was an error sending your email. Please try again.',
-          });
-        }
-      );
+      emailjs
+        .send("service_5hsijy9", "template_uyv04zn", formValues, "_277DntGEBN13mq7H")
+        .then(
+          (result) => {
+            console.log("SUCCESS!", result.text);
+            notification.success({
+              message: 'Email Sent',
+              description: 'Your email has been sent successfully!',
+            });
+            setVisible(false);
+            form.reset();
+            setFormValues({
+              name: "",
+              companyName: "",
+              email: "",
+              phoneNumber: "",
+              selectedItems: [],
+              query: "",
+            });
+          },
+          (error) => {
+            console.error("FAILED...", error);
+            notification.error({
+              message: 'Email Failed',
+              description: 'There was an error sending your email. Please try again.',
+            });
+          }
+        );
+    }
+  };
+
+  const validateForm = () => {
+    let formErrors = {};
+    let valid = true;
+
+    if (!formValues.name) {
+      formErrors.name = "Name is required";
+      valid = false;
+    }
+
+    if (!formValues.companyName) {
+      formErrors.companyName = "Company Name is required";
+      valid = false;
+    }
+
+    if (!formValues.email) {
+      formErrors.email = "Email is required";
+      valid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formValues.email)) {
+      formErrors.email = "Email address is invalid";
+      valid = false;
+    }
+
+    if (!formValues.phoneNumber) {
+      formErrors.phoneNumber = "Phone Number is required";
+      valid = false;
+    } else if (!validatePhoneNumber(formValues.phoneNumber)) {
+      formErrors.phoneNumber = "Phone Number must be 10 digits";
+      valid = false;
+    }
+
+    if (!formValues.query) {
+      formErrors.query = "Query is required";
+      valid = false;
+    }
+
+    setErrors(formErrors);
+    return valid;
   };
 
   const handleInputChange = (e) => {
@@ -81,10 +131,11 @@ const Hero = () => {
       selectedItems: [],
       query: "",
     });
+    setErrors({});
   };
 
   const validatePhoneNumber = (phoneNumber) => {
-    return phoneNumber && phoneNumber.length === 10;
+    return phoneNumber && phoneNumber.toString().length === 10;
   };
 
   return (
@@ -174,6 +225,7 @@ const Hero = () => {
                 required
                 className="w-full p-2 border rounded"
               />
+              {errors.name && <span className="text-red-500">{errors.name}</span>}
             </Col>
           </Row>
           <Row gutter={16}>
@@ -187,6 +239,7 @@ const Hero = () => {
                 required
                 className="w-full p-2 border rounded"
               />
+              {errors.companyName && <span className="text-red-500">{errors.companyName}</span>}
             </Col>
           </Row>
           <Row gutter={16}>
@@ -200,6 +253,7 @@ const Hero = () => {
                 required
                 className="w-full p-2 border rounded"
               />
+              {errors.email && <span className="text-red-500">{errors.email}</span>}
             </Col>
             <Col span={12}>
               <label>Phone Number</label>
@@ -215,9 +269,7 @@ const Hero = () => {
                 min={0}
                 style={{ width: '100%' }}
               />
-              {!validatePhoneNumber(formValues.phoneNumber) && (
-                <span className="text-red-500">Please enter 10 digits</span>
-              )}
+              {errors.phoneNumber && <span className="text-red-500">{errors.phoneNumber}</span>}
             </Col>
           </Row>
           <Row gutter={16}>
@@ -247,6 +299,7 @@ const Hero = () => {
                 rows="4"
                 className="w-full p-2 border rounded"
               />
+              {errors.query && <span className="text-red-500">{errors.query}</span>}
             </Col>
           </Row>
           <div className="flex justify-end">
