@@ -6,6 +6,7 @@ import image2 from "../assets/phone.svg"
 
 const Footer = () => {
   return (
+    <>
     <Section crosses className="!px-0 !py-10 lg:bg-custom-gradient lg:backdrop-blur-sm   ">
       <div className="container flex sm:justify-between justify-center items-center gap-10 max-sm:flex-col">
         <p className="caption text-black lg:block flex flex-col gap-2">
@@ -29,7 +30,12 @@ const Footer = () => {
           ))}
         </ul>
       </div>
+      
     </Section>
+    <iframe src="https://embeds.beehiiv.com/bc2185fb-e52b-4bde-8e41-27c422492ad1" data-test-id="beehiiv-embed" width="100%" height="320" frameborder="0" scrolling="no" 
+   ></iframe>
+
+</>
   );
 };
 

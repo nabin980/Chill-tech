@@ -33,7 +33,7 @@ const Hero = () => {
       console.log(formValues);
 
       emailjs
-        .send("service_5hsijy9", "template_uyv04zn", formValues, "_277DntGEBN13mq7H")
+        .send("service_5hsijy9", "template_uyv04zn", formValues, "6AavZtjTbXfs3H_KA")
         .then(
           (result) => {
             console.log("SUCCESS!", result.text);
@@ -213,7 +213,7 @@ const Hero = () => {
         onCancel={handleCancel}
         className="modal-transparent"
       >
-        <form ref={formRef} onSubmit={sendEmail} layout="vertical">
+        <form ref={formRef} layout="vertical">
           <Row gutter={16}>
             <Col span={24}>
               <label>Name</label>
@@ -302,11 +302,7 @@ const Hero = () => {
               {errors.query && <span className="text-red-500">{errors.query}</span>}
             </Col>
           </Row>
-          <div className="flex justify-end">
-            <button type="submit" className="btn-primary">
-              Submit
-            </button>
-          </div>
+         
         </form>
       </Modal>
     </Section>
